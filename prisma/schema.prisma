@@ -10,12 +10,15 @@ datasource db {
 model User {
   id                  String   @id @default(cuid())
   name                String?
+  firstName           String?
+  lastName            String?
   email               String?  @unique
   emailVerified       DateTime?
   image               String?
   passwordHash        String?
   stripeCustomerId    String?
   subscriptionStatus  String?
+  isAdmin             Boolean  @default(false)
   accounts            Account[]
   sessions            Session[]
   chats               Chat[]
